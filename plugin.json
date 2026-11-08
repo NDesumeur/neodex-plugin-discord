@@ -1,7 +1,7 @@
 {
   "id": "neodex.discord",
   "name": "Discord",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "NDesumeur",
   "description": "Discord dans un onglet de NeoDex : l'application web officielle, avec serveurs, messages privés, appels et partage d'écran. Tu te connectes une fois, les messages non lus s'affichent sur l'onglet, les notifications passent par les autorisations des sites, et les couleurs suivent ton thème (désactivable dans Paramètres → Apparence). NeoDex ne lit rien de ton compte.",
   "icon": "icon.png",
