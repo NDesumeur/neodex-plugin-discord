@@ -1,0 +1,6 @@
+{
+ "Ce plugin doit être approuvé par NeoDex pour s'ouvrir.": "This plugin must be approved by NeoDex to open.",
+ "Discord": "Discord",
+ "Discord dans un onglet de NeoDex : l'application web officielle, avec serveurs, messages privés, appels et partage d'écran. Tu te connectes une fois, les messages non lus s'affichent sur l'onglet, les notifications passent par les autorisations des sites, et les couleurs suivent ton thème (désactivable dans Paramètres → Apparence). NeoDex ne lit rien de ton compte.": "Discord in a NeoDex tab: the official web app, with servers, direct messages, calls and screen sharing. You sign in once, unread messages show on the tab, notifications go through site permissions, and the colours follow your theme (can be turned off in Settings → Appearance). NeoDex reads nothing from your account.",
+ "Rien n'est synchronisé : la connexion reste sur chaque PC.": "Nothing is synchronized: the connection remains on each PC."
+}
