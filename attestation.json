@@ -1,9 +1,9 @@
 {
   "pluginId": "neodex.discord",
   "repo": "NDesumeur/neodex-plugin-discord",
-  "version": "1.0.4",
-  "sha256": "361141e397f8e86aaba4fc959f1376b976417dfaea6d173ce79d3e6bb09657f8",
-  "approvedAt": "2026-11-08T12:10:47.172Z",
+  "version": "1.1.0",
+  "sha256": "4d5cc9ef687cb4a7cc35b43f6bdc6757d299b09bbe4753cb443d6e668b432c1e",
+  "approvedAt": "2026-11-16T16:38:48.078Z",
   "neobase": ">=4.0.0",
-  "signature": "dVhPGnW2IE1HzSwiZAydS0uZ7C+TMJNhGsa0gkC/qO/9JF+FnQ/9nOG3+j4mbgWAFm8kFEQSfoqdPXyCdrIkBw=="
+  "signature": "n9W7SXsBL4fAggQrAJMDm8lCV7EowRwosxBc9k5Nl5Q6mc6BlZZJA52kPahLwxqx1VemjIVxBSAUDpD6SNY7Aw=="
 }
