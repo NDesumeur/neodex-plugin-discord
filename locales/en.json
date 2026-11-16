@@ -9,5 +9,6 @@
  " non lu": " unread",
  " (messages privés et mentions)": " (private messages and mentions)",
  "Messages privés et mentions": "Private messages and mentions",
- "Un nouveau message privé ou une mention sur Discord.": "A new private message or mention on Discord."
+ "Un nouveau message privé ou une mention sur Discord.": "A new private message or mention on Discord.",
+ "(messages privés et mentions)": "(private messages and mentions)"
 }
