@@ -1,9 +1,9 @@
 {
   "id": "neodex.discord",
   "name": "Discord",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "author": "NDesumeur",
-  "description": "Discord dans un onglet de NeoDex : l'application web officielle, avec serveurs, messages privés, appels et partage d'écran. Tu te connectes une fois, les messages non lus s'affichent sur l'onglet, les notifications passent par les autorisations des sites, et les couleurs suivent ton thème (désactivable dans Paramètres → Apparence). NeoDex ne lit rien de ton compte.",
+  "description": "Discord dans un onglet de NeoDex : l'application web officielle, avec serveurs, messages privés, appels et partage d'écran. Tu te connectes une fois, les messages privés et mentions non lus s'affichent sur l'onglet et sur l'icône de la barre de gauche, même onglet fermé, avec une notification à chaque nouveau message, les notifications passent par les autorisations des sites, et les couleurs suivent ton thème (désactivable dans Paramètres → Apparence). NeoDex ne lit rien de ton compte.",
   "icon": "icon.png",
   "entry": "index.js",
   "view": "discord",
@@ -18,5 +18,14 @@
   "dependencies": {},
   "permissions": [
     "full"
+  ],
+  "autoload": true,
+  "neodex": ">=3.2.0",
+  "notifications": [
+    {
+      "type": "mp",
+      "name": "Messages privés et mentions",
+      "description": "Un nouveau message privé ou une mention sur Discord."
+    }
   ]
 }

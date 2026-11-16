@@ -29,12 +29,18 @@ export default async function (ctx) {
     dcView = document.createElement('webview');
     dcView.setAttribute('partition', 'persist:web'); dcView.setAttribute('allowpopups', '');
     dcView.className = 'dcView'; dcView.src = 'https://discord.com/app';
-    // "(3) Discord", "• Discord | #salon": the count of unread messages goes on the tab
-    dcView.addEventListener('page-title-updated', e => {
-      const n = /^\((\d+)\)/.exec(e.title)?.[1], dot = /^•/.test(e.title);
-      host.tabLabel('Discord' + (n ? ' (' + n + ')' : dot ? ' •' : ''), e.title);
-    });
+    // "(3) Discord", "• Discord | #salon": the count of unread private messages and mentions goes on the tab and on the icon of the
+    // left bar; a new one is also a NeoDex notification (without a Windows bubble: Discord shows its own)
+    dcView.addEventListener('page-title-updated', e => dcUnread(e.title));
     $('discordApp').append(dcView);
+  }
+  let dcLast = 0;
+  function dcUnread(title) {
+    const n = +(/^\((\d+)\)/.exec(title)?.[1] || 0), dot = /^•/.test(title);
+    host.tabLabel('Discord' + (n ? ' (' + n + ')' : dot ? ' •' : ''), title);
+    host.dockBadge?.(n);
+    if (n > dcLast) Promise.resolve(ctx.notifications?.send({ title: n - dcLast > 1 ? (n - dcLast) + ' nouveaux messages' : 'Nouveau message', body: n + ' message' + (n > 1 ? 's' : '') + ' non lu' + (n > 1 ? 's' : '') + ' (messages privés et mentions)', open: 'plugin:neodex.discord', type: 'mp', silent: true })).catch(() => {});
+    dcLast = n;
   }
 
   // Discord's colours = the theme's (Paramètres > apparence), set again whenever the theme changes
@@ -58,6 +64,6 @@ export default async function (ctx) {
   { const real = dcOpen; dcOpen = function () { const had = dcView; real.apply(this, arguments); if (!had && dcView) dcView.addEventListener('dom-ready', () => { dcCssKey = null; dcSkin(); }); }; }
   const dcObs = new MutationObserver(() => { clearTimeout(dcSkin.t); dcSkin.t = setTimeout(dcSkin, 200); }).observe(document.documentElement, {attributes: true, attributeFilter: ['style']});
   // ---- fin ----
-  ctx.onOpen(() => { dcOpen(); });
-  ctx.onClose(() => { dcObs.disconnect(); });
+  dcOpen();  // started with NeoDex (autoload): the unread messages show on the left bar even before the tab is opened
+  ctx.onOpen(() => { dcOpen(); });  ctx.onClose(() => { dcObs.disconnect(); });
 }
